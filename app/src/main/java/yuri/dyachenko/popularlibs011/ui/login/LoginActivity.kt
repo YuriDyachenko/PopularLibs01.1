@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity(), Contract.View {
                 registerButton to { presenter.onRegister(gatherData(), gatherSecondPassword()) },
                 errorLoginButton to { presenter.onErrorLogin() },
                 errorRegistrationButton to { presenter.onErrorRegistration() },
-                forgotPasswordButton to { presenter.onForgotPassword() },
+                forgotPasswordButton to { presenter.onForgotPassword(gatherData()) },
                 returnButton to { presenter.onReturn() }
             )
         }
@@ -66,7 +66,8 @@ class LoginActivity : AppCompatActivity(), Contract.View {
                 emailInput,
                 passwordInput,
                 secondPasswordInput,
-                registerButton
+                registerButton,
+                returnButton
             )
         }
     }

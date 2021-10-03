@@ -30,6 +30,6 @@ class Contract {
         fun onErrorRegistration()
         fun onReturn()
         fun onTextChanged(data: LoginData, secondPassword: String)
-        fun onForgotPassword()
+        fun onForgotPassword(data: LoginData)
     }
 }

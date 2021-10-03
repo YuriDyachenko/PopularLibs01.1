@@ -3,6 +3,7 @@ package yuri.dyachenko.popularlibs011.ui.login
 import kotlinx.coroutines.*
 import yuri.dyachenko.popularlibs011.domain.LoginData
 import yuri.dyachenko.popularlibs011.domain.LoginRepo
+import yuri.dyachenko.popularlibs011.domain.RESULT_EMPTY_EMAIL
 
 const val SIMULATION_DELAY_MILLIS = 2_000L
 
@@ -45,6 +46,16 @@ class LoginPresenter(private val loginRepo: LoginRepo) : Contract.Presenter,
     private fun viewSetOk(messageId: Int) = view?.apply {
         savedOkMessageId = messageId
         setOkMessage(messageId)
+    }
+
+    private fun viewSetErrorState(messageId: Int, errorState: Contract.State) {
+        viewSetError(messageId)
+        viewSetState(errorState)
+    }
+
+    private fun viewSetOkState(messageId: Int, okState: Contract.State) {
+        viewSetOk(messageId)
+        viewSetState(okState)
     }
 
     private fun viewSetLoadingState() {
@@ -113,8 +124,8 @@ class LoginPresenter(private val loginRepo: LoginRepo) : Contract.Presenter,
         savedSecondPassword = secondPassword
     }
 
-    override fun onForgotPassword() {
-        viewSetOk(MESSAGE_OK_PASSWORD_SENT)
-        viewSetState(Contract.State.PASSWORD_SENT)
-    }
+    override fun onForgotPassword(data: LoginData) =
+        takeIf { data.email.isBlank() }?.let {
+            viewSetErrorState(RESULT_EMPTY_EMAIL, Contract.State.ERROR_LOGIN)
+        } ?: viewSetOkState(MESSAGE_OK_PASSWORD_SENT, Contract.State.PASSWORD_SENT)
 }

@@ -30,9 +30,9 @@ interface LoginRepo {
             }
         }
 
-    fun login(data: LoginData) =
+    fun login(data: LoginData): Int? =
         checkLogin(data) ?: findByEmail(data)?.let {
-            it.takeIf { it.password != data.password }?.let { RESULT_WRONG_PASSWORD }
+            it.takeIf { it.password == data.password }?.let { return null } ?: RESULT_WRONG_PASSWORD
         } ?: RESULT_EMAIL_NOT_FOUND
 
     fun register(data: LoginData, secondPassword: String) =
