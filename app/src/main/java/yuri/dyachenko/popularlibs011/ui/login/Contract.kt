@@ -8,6 +8,7 @@ const val MESSAGE_OK_REGISTERED = 103
 const val MESSAGE_OK_PASSWORD_SENT = 104
 
 class Contract {
+
     enum class State {
         LOGIN, REGISTRATION, ERROR_LOGIN, ERROR_REGISTRATION, LOADING, SUCCESS, PASSWORD_SENT
     }

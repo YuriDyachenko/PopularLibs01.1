@@ -1,4 +1,4 @@
-package yuri.dyachenko.popularlibs011.application
+package yuri.dyachenko.popularlibs011.impl.utils
 
 import android.view.View
 import android.view.ViewGroup

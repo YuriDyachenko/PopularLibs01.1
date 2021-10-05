@@ -6,16 +6,16 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import yuri.dyachenko.popularlibs011.R
-import yuri.dyachenko.popularlibs011.application.App
-import yuri.dyachenko.popularlibs011.application.showOnly
 import yuri.dyachenko.popularlibs011.databinding.ActivityLoginBinding
 import yuri.dyachenko.popularlibs011.domain.*
+import yuri.dyachenko.popularlibs011.impl.utils.showOnly
 
 class LoginActivity : AppCompatActivity(), Contract.View {
+
     private var _binding: ActivityLoginBinding? = null
     private val binding get() = _binding!!
 
-    private val presenter = App.getLoginPresenter()
+    private val presenter by lazy { getLoginPresenter(R.id.container) }
 
     private val messageMap = mapOf(
         RESULT_EMPTY_EMAIL to R.string.error_text_empty_email,
