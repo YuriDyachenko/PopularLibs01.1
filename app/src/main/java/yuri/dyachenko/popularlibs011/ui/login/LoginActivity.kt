@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import yuri.dyachenko.popularlibs011.R
 import yuri.dyachenko.popularlibs011.databinding.ActivityLoginBinding
 import yuri.dyachenko.popularlibs011.domain.*
-import yuri.dyachenko.popularlibs011.impl.utils.showOnly
+import yuri.dyachenko.popularlibs011.utils.showOnly
 
 class LoginActivity : AppCompatActivity(), Contract.View {
 

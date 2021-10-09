@@ -13,11 +13,6 @@ class LoginListRepoImpl : LoginRepo {
 
     override fun findByEmail(data: LoginData): LoginData? {
         val searchEmail = data.email.lowercase()
-        list.forEach {
-            if (it.email == searchEmail) {
-                return it
-            }
-        }
-        return null
+        return list.firstOrNull { it.email == searchEmail }
     }
 }
