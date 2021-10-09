@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import yuri.dyachenko.popularlibs011.App
 import yuri.dyachenko.popularlibs011.R
-import yuri.dyachenko.popularlibs011.impl.LoginListRepoImpl
 
 class LoginRetainedFragment : Fragment() {
 
@@ -15,7 +15,7 @@ class LoginRetainedFragment : Fragment() {
 
     fun getLoginPresenter() = loginPresenter
         ?: let {
-            loginPresenter = LoginPresenter(LoginListRepoImpl())
+            loginPresenter = LoginPresenter(App.loginRepo)
             loginPresenter!!
         }
 
