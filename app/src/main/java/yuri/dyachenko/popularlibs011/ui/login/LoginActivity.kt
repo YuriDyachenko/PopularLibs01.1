@@ -5,15 +5,15 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import by.kirich1409.viewbindingdelegate.viewBinding
 import yuri.dyachenko.popularlibs011.R
 import yuri.dyachenko.popularlibs011.databinding.ActivityLoginBinding
 import yuri.dyachenko.popularlibs011.domain.*
 import yuri.dyachenko.popularlibs011.utils.showOnly
 
-class LoginActivity : AppCompatActivity(), Contract.View {
+class LoginActivity : AppCompatActivity(R.layout.activity_login), Contract.View {
 
-    private var _binding: ActivityLoginBinding? = null
-    private val binding get() = _binding!!
+    private val binding by viewBinding(ActivityLoginBinding::bind, R.id.container)
 
     private val presenter by lazy { getLoginPresenter(R.id.container) }
 
@@ -144,10 +144,7 @@ class LoginActivity : AppCompatActivity(), Contract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        _binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         initViews()
     }
 
@@ -172,7 +169,6 @@ class LoginActivity : AppCompatActivity(), Contract.View {
 
     override fun onDestroy() {
         presenter.onDetach()
-        _binding = null
         super.onDestroy()
     }
 

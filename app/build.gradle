@@ -36,6 +36,9 @@ android {
 
 dependencies {
 
+    //viewBinding
+    implementation 'com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.0-beta01'
+
     //Kotlin
     implementation 'androidx.core:core-ktx:1.6.0'
 
