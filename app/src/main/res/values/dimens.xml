@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="login_global_padding">10dp</dimen>
+    <dimen name="login_progress_size">100dp</dimen>
+    <dimen name="login_title_text_size">36sp</dimen>
+    <dimen name="login_message_text_size">24sp</dimen>
+    <dimen name="login_message_margin">5dp</dimen>
+</resources>

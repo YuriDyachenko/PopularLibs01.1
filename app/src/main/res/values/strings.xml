@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">Popular Libs 01.1</string>
+    <string name="login_welcome_title_text">Welcome</string>
+    <string name="login_ok_text_unknown">It\'s OK</string>
+    <string name="login_email_edit_hint">e-mail</string>
+    <string name="login_password_edit_hint">password</string>
+    <string name="login_second_password_edit_hint">repeat password</string>
+    <string name="login_error_button_text">try again</string>
+    <string name="login_enter_button_text">log in</string>
+    <string name="login_exit_button_text">log out</string>
+    <string name="login_register_button_text">register</string>
+    <string name="login_registration_button_text">registration</string>
+    <string name="login_forgot_password_button_text">forgot password</string>
+    <string name="login_return_button_text">return</string>
+    <string name="error_text_empty_email">Empty e-mail!</string>
+    <string name="error_text_empty_password">Empty password!</string>
+    <string name="error_text_empty_repeat_password">Empty second password!</string>
+    <string name="error_text_different_passwords">Different passwords!</string>
+    <string name="ok_logged_in">You are successfully logged in, :)</string>
+    <string name="ok_registered">You are successfully registered, :)</string>
+    <string name="ok_password_sent">The password has been sent to the specified e-mail…</string>
+    <string name="wait_checking">"Checking . . . . . "</string>
+    <string name="error_text_email_not_found">E-mail not found!</string>
+    <string name="error_text_wrong_password">Wrong password!</string>
+    <string name="error_text_login_is_busy">Login is busy!</string>
+    <string name="ok_text_unknown">Unknown success!</string>
+    <string name="error_text_unknown">Unknown error!</string>
 </resources>

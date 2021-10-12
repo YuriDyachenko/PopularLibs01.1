@@ -13,4 +13,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="BlueButton">
+        <item name="android:backgroundTint">@color/blue</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="ProgressBarStyle">
+        <item name="colorAccent">@color/purple_700</item>
+    </style>
 </resources>
