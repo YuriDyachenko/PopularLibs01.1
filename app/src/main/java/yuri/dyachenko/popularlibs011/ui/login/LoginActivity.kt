@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import by.kirich1409.viewbindingdelegate.viewBinding
 import moxy.MvpAppCompatActivity
 import moxy.ktx.moxyPresenter
