@@ -6,16 +6,19 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import by.kirich1409.viewbindingdelegate.viewBinding
+import moxy.MvpAppCompatActivity
+import moxy.ktx.moxyPresenter
+import yuri.dyachenko.popularlibs011.App
 import yuri.dyachenko.popularlibs011.R
 import yuri.dyachenko.popularlibs011.databinding.ActivityLoginBinding
 import yuri.dyachenko.popularlibs011.domain.*
 import yuri.dyachenko.popularlibs011.utils.showOnly
 
-class LoginActivity : AppCompatActivity(R.layout.activity_login), Contract.View {
+class LoginActivity : MvpAppCompatActivity(R.layout.activity_login), Contract.View {
 
     private val binding by viewBinding(ActivityLoginBinding::bind, R.id.container)
 
-    private val presenter by lazy { getLoginPresenter(R.id.container) }
+    private val presenter by moxyPresenter { LoginPresenter(App.loginRepo) }
 
     private val messageMap = mapOf(
         RESULT_EMPTY_EMAIL to R.string.error_text_empty_email,
@@ -149,8 +152,6 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login), Contract.View 
     }
 
     private fun initViews() {
-        presenter.onAttach(this)
-
         initButtons()
         initEdits()
     }
@@ -165,11 +166,6 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login), Contract.View 
         emailEditText.addTextChangedListener(textWatcher)
         passwordEditText.addTextChangedListener(textWatcher)
         secondPasswordEditText.addTextChangedListener(textWatcher)
-    }
-
-    override fun onDestroy() {
-        presenter.onDetach()
-        super.onDestroy()
     }
 
     private fun gatherData() = LoginData(

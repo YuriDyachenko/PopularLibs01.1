@@ -1,5 +1,8 @@
 package yuri.dyachenko.popularlibs011.ui.login
 
+import moxy.MvpPresenter
+import moxy.MvpView
+import moxy.viewstate.strategy.alias.AddToEndSingle
 import yuri.dyachenko.popularlibs011.domain.LoginData
 
 const val MESSAGE_OK_LOGGED_IN = 101
@@ -10,27 +13,35 @@ const val MESSAGE_OK_PASSWORD_SENT = 104
 class Contract {
 
     enum class State {
+
         LOGIN, REGISTRATION, ERROR_LOGIN, ERROR_REGISTRATION, LOADING, SUCCESS, PASSWORD_SENT
     }
 
-    interface View {
+    interface View : MvpView {
+
+        @AddToEndSingle
         fun setState(state: State)
+
+        @AddToEndSingle
         fun setData(data: LoginData, secondPassword: String)
+
+        @AddToEndSingle
         fun setOkMessage(messageId: Int)
+
+        @AddToEndSingle
         fun setErrorMessage(messageId: Int)
     }
 
-    interface Presenter {
-        fun onAttach(view: View)
-        fun onDetach()
-        fun onEnter(data: LoginData)
-        fun onExit()
-        fun onRegister(data: LoginData, secondPassword: String)
-        fun onRegistration()
-        fun onErrorLogin()
-        fun onErrorRegistration()
-        fun onReturn()
-        fun onTextChanged(data: LoginData, secondPassword: String)
-        fun onForgotPassword(data: LoginData)
+    abstract class Presenter : MvpPresenter<View>() {
+
+        abstract fun onEnter(data: LoginData)
+        abstract fun onExit()
+        abstract fun onRegister(data: LoginData, secondPassword: String)
+        abstract fun onRegistration()
+        abstract fun onErrorLogin()
+        abstract fun onErrorRegistration()
+        abstract fun onReturn()
+        abstract fun onTextChanged(data: LoginData, secondPassword: String)
+        abstract fun onForgotPassword(data: LoginData)
     }
 }

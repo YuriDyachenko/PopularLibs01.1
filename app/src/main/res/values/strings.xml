@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Popular Libs 01.1</string>
+    <string name="app_name">Popular Libs 01.1.1</string>
     <string name="login_welcome_title_text">Welcome</string>
     <string name="login_ok_text_unknown">It\'s OK</string>
     <string name="login_email_edit_hint">e-mail</string>
